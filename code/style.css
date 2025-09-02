@@ -1,0 +1,176 @@
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Safira March';
+  src: url('../font/safira_march/SafiraMarch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Base ---------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Josefin Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* ---------- Header ---------- */
+header {
+  text-align: center;
+  padding: 20px 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  color: #C23C50;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 20px;
+}
+
+.menu a {
+  font-family: 'Safira March', Georgia, 'Times New Roman', serif;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.menu a:hover {
+  color: #0077cc;
+}
+
+.menu a:focus-visible {
+  outline: 2px solid #C23C50;
+  outline-offset: 3px;
+}
+
+/* ---------- Layout ---------- */
+main.container {
+  flex: 1; /* sticky footer */
+  display: flex;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+/* Main blog post */
+.main-post {
+  flex: 3;
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* space between the two cards */
+}
+
+.sidebar h3 {
+  margin: 0 0 12px 0;
+  padding: 0 2px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Stack of cards */
+.post-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Each card takes equal height */
+.post-card {
+  flex: 1;  /* equal split inside sidebar */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  overflow: hidden; /* clip image corners */
+  background: #fff;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Title at top */
+.post-card .title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+  z-index: 2;
+}
+
+/* Image fills remaining space */
+.post-card img {
+  flex: 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;  /* keeps ratio, crops if needed */
+  display: block;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  main.container {
+    flex-direction: column;
+  }
+
+  .main-post,
+  .sidebar {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
